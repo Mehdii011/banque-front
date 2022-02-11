@@ -21,7 +21,7 @@ export class UpdateConseillerComponent implements OnInit {
 
 
   constructor(private route:ActivatedRoute,public conseillerSer:ConseillerService,public router:Router) { }
- 
+
   ngOnInit(): void {
     this.id= this.route.snapshot.params['id'];
 
@@ -33,13 +33,13 @@ export class UpdateConseillerComponent implements OnInit {
   }
 
   getConseiller(){
-   
+
   }
   onSubmit(){
     this.conseiller.id= this.id;
     this.conseillerSer.update(this.conseiller).subscribe(res=>{
       console.log(res)
-      this.router.navigateByUrl('/')  
+      this.router.navigateByUrl('/conseiller')
 
     })
 

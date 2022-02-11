@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Compte} from "../../model/Compte";
+import {CompteService} from "../../services/compte.service";
+import {Client} from "../../model/client";
 
 @Component({
   selector: 'app-list-compte',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListCompteComponent implements OnInit {
 
-  constructor() { }
+  compte:Compte[]=[];
+  private client:Client={
+
+  };
+
+  constructor(public compteServ:CompteService) { }
 
   ngOnInit(): void {
+    this.getCompte();
+
   }
 
+  getCompte(){
+    this.compteServ.getAll().subscribe(res=>{
+
+      this.compte=res as Compte[]
+      this.compte.forEach(a=>{
+        console.log(a) ;
+      })
+      console.log(this.client) ;
+
+    })
+  }
 }

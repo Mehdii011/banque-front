@@ -22,6 +22,7 @@ import {OperationComponent} from "./componenets/operation/operation.component";
 import { OperationDetailComponent } from './components/operation-detail/operation-detail.component';
 import {ClientIdConseillerComponent} from "./componenets/client-id-conseiller/client-id-conseiller.component";
 import {AuthGuardGuard} from "./guards/auth-guard.guard";
+import {DetailCompteBComponent} from "./componenets/detail-compte-b/detail-compte-b.component";
 
 const routes: Routes = [
   {path:"",redirectTo:'/clients',pathMatch:'full'},
@@ -43,7 +44,9 @@ const routes: Routes = [
     {path:"edit/:id",component:UpdateCompteComponent,canActivate:[AuthGuardGuard]},
     {path:"add",component:AddCompteComponent,canActivate:[AuthGuardGuard]},
     {path:"detail/:id",component:DetailCompteComponent,canActivate:[AuthGuardGuard]},
-  ]},
+      {path:"details/:num",component:DetailCompteBComponent,canActivate:[AuthGuardGuard]},
+
+    ]},
   {path:"operation",children:[
       {path:"",component:OperationComponent,canActivate:[AuthGuardGuard]},
       {path:"detail/:id",component:OperationDetailComponent,canActivate:[AuthGuardGuard]},

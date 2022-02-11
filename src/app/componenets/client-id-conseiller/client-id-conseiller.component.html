@@ -1,0 +1,48 @@
+<div class="card mt-5 " >
+  <div class="card-body ">
+    <h4 class="card-title">Listes des Clients de Conseiller <b>{{conseiller.nom | uppercase}} {{conseiller.prenom | uppercase}}</b> </h4>
+    <table class="table table-striped mt-4" >
+      <thead >
+      <tr>
+        <th>NOM </th>
+        <th>ADRESSE</th>
+        <th>COMPTE-EXIST</th>
+        <th>DETAIL-COMPTE</th>
+        <th>CONSEILLER</th>
+        <th>DETAIL-CLIENT</th>
+        <th>MODIFICATION</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of client">
+        <td scope="row">{{c.nom}}  {{c.prenom}}</td>
+        <td> {{c.adresse}}</td>
+        <td>
+          <a routerLink="/compte/detail/{{c.id}}" class="btn btn-success"><i class="fa fa-check-circle" ></i></a>
+
+        </td>
+        <td>
+          <a routerLink="/compte/detail/{{c.id}}" class="btn btn-success"><i class="fa fa-check-circle" ></i></a>
+          <a routerLink="/compte/detail/{{c.id}}" class="btn btn-danger"><i class="fas fa-dot-circle"></i></a>
+
+        </td>
+
+        <td>
+          <a routerLink="/compte/detail/{{c.id}}" class="btn btn-info"><i class="fa fa-info" ></i></a>
+        </td>
+        <td>Anas</td>
+        <td>
+          <a routerLink="/clients/detail/{{c.id}}" class="btn btn-info"><i class="fa fa-info" ></i></a>
+        </td>
+        <td>
+          <a href="" class="btn btn-warning"><i class="fa fa-pencil" ></i></a>
+
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
